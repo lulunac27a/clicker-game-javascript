@@ -8,31 +8,31 @@ let score = 0;
 startButton.addEventListener("click", startGame);
 clickButton.addEventListener("click", incrementScore);
 timeSelect.addEventListener("change", function () {
-  timeLeft = parseInt(this.value);
-  timeLeftText.textContent = timeLeft;
+    timeLeft = parseInt(this.value);
+    timeLeftText.textContent = timeLeft;
 });
 function startGame() {
-  score = 0;
-  scoreText.textContent = score;
-  timeLeftText.textContent = timeLeft;
-  clickButton.disabled = false;
-  startButton.disabled = true;
-  timeSelect.disabled = true;
-  const timer = setInterval(() => {
-    timeLeft--;
+    score = 0;
+    scoreText.textContent = score;
     timeLeftText.textContent = timeLeft;
-    if (timeLeft <= 0) {
-      clearInterval(timer);
-      endGame();
-    }
-  }, 1000);
+    clickButton.disabled = false;
+    startButton.disabled = true;
+    timeSelect.disabled = true;
+    const timer = setInterval(() => {
+        timeLeft--;
+        timeLeftText.textContent = timeLeft;
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            endGame();
+        }
+    }, 1000);
 }
 function incrementScore() {
-  score++;
-  scoreText.textContent = score;
+    score++;
+    scoreText.textContent = score;
 }
 function endGame() {
-  clickButton.disabled = true;
-  startButton.disabled = false;
-  timeSelect.disabled = false;
+    clickButton.disabled = true;
+    startButton.disabled = false;
+    timeSelect.disabled = false;
 }
